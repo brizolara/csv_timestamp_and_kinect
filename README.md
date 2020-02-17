@@ -8,6 +8,7 @@ Boilerplate code for personal use. Main file is csv_timestamp_and_kinect.pde (Pr
   * Plays back data curves from .csv files with other timestamped motion capture data I had recorded. This plot is adapted from Rebeca Fiebrink's [OSCDataPlotter](https://github.com/fiebrink1/wekinator_examples/tree/master/teaching_examples/OSCDataPlotter).
 * Assumes certain file structure (which is not in this repository):
 
+<pre>
 |- csv_timestamp_and_kinect
 |-- csv_timestamp_and_kinect.pde 
 |- data
@@ -20,6 +21,6 @@ Boilerplate code for personal use. Main file is csv_timestamp_and_kinect.pde (Pr
 |---- kinect
 |---- video
 |-- ...
-
+</pre>
 ---------------------------------------------------
 LICENSE: GPL v2.0
