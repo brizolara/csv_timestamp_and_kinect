@@ -72,6 +72,10 @@ class SkeletonPlayer extends Player
     return skeletonTrajectory.get(this.currFrame).timestamp;
   }
   
+  int getInitialTimestamp() {
+     return skeletonTrajectory.get(0).timestamp;
+  }
+  
   void DrawBone(SkeletonData _s, int _j1, int _j2) 
   {
     noFill();

@@ -13,7 +13,7 @@ class GraphPlayer extends Player
     n_curves = p_nc;
   }
   
-  String loadNextFrame()
+  String loadNextFrame(String p_entry)
   {
     try
     {
@@ -41,7 +41,7 @@ class GraphPlayer extends Player
         }
         pieces = split(line, ' ');
         
-        if(line.contains("M0 e ")) {
+        if(line.contains(p_entry + " ")) {  //  <== HARD-CODED
           break;  
         }
         if(count == 100) {
