@@ -50,7 +50,7 @@ class SkeletonPlayer extends Player
  
         skeleton.skeletonPositions[i].x = float(pieces[1]);
         skeleton.skeletonPositions[i].y = float(pieces[2]);
-        //nextMillis = int(pieces[4]);
+        skeleton.skeletonPositions[i].z = float(pieces[3]) / 20000;
         
         //Kinect.NUI_SKELETON_POSITION_HEAD
       } catch (IOException e) {
@@ -75,16 +75,7 @@ class SkeletonPlayer extends Player
   int getInitialTimestamp() {
      return skeletonTrajectory.get(0).timestamp;
   }
-  
-  void DrawBone(SkeletonData _s, int _j1, int _j2) 
-  {
-    noFill();
-    stroke(255, 255, 0);
-    line(_s.skeletonPositions[_j1].x*width/2, 
-    _s.skeletonPositions[_j1].y*height/2, 
-    _s.skeletonPositions[_j2].x*width/2, 
-    _s.skeletonPositions[_j2].y*height/2);
-  }
+
 }
 //-----------------------------------------------------------------------
 

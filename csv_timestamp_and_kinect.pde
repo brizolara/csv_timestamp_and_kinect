@@ -60,7 +60,7 @@ String data_path = "";
 void setup()
 {
   //size(640, 480);
-  size(700, 540);
+  size(700, 540, P3D);
   background(0);
   //kinect = new Kinect(this);
   smooth();
@@ -154,12 +154,19 @@ void draw()
   //image(kinect.GetMask(), 320, 240, 320, 240);
   if(showSkeletonTracking)
   {
+    //  NOTE: manually done... the correct would be write a transform from 
+    //kinect space to screen or to world coordinates...
+    //pushMatrix();
+    //translate(600, 60, 60);
+    pushMatrix();
+    translate(-80, -60, -410);
     for (int i=0; i<bodies.size (); i++) 
     {
       drawSkeleton(bodies.get(i));
       //drawPosition(bodies.get(i));
       //sendOSC_Skeleton(bodies.get(i));
     }
+    popMatrix();
   }
   if(state == State.RECORDING) {
     //for (int i=0; i<bodies.size (); i++) 
@@ -172,12 +179,23 @@ void draw()
   {
     if(skeletonPlayer != null) {
       if(skeletonPlayer.loaded) {
+        pushMatrix();
+        translate(-80, -80, -410);
         drawSkeletonFrame();
+        popMatrix();
+        pushMatrix();
+        rotateY(PI/2.);
+        translate(-110, -80, -130);
+        drawSkeletonFrame();
+        popMatrix();
       }
     }
     if(graphPlayer_Left != null) {
       if(graphPlayer_Left.loaded) {
+        pushMatrix();
+        translate(-40,-30,-90);
         drawGraphFrame();
+        popMatrix();
       }
     }
     if(mov != null)
@@ -739,10 +757,14 @@ void DrawBone(SkeletonData _s, int _j1, int _j2)
     _s.skeletonPositionTrackingState[_j2] != Kinect.NUI_SKELETON_POSITION_NOT_TRACKED)
     || state==State.PLAYBACK)
   {
-    line(_s.skeletonPositions[_j1].x*width/2, 
-    _s.skeletonPositions[_j1].y*height/2, 
-    _s.skeletonPositions[_j2].x*width/2, 
-    _s.skeletonPositions[_j2].y*height/2);
+    line(_s.skeletonPositions[_j1].x*300.,//width/2, 
+    _s.skeletonPositions[_j1].y*300.,//height/2, 
+    _s.skeletonPositions[_j1].z*300.,
+    _s.skeletonPositions[_j2].x*300.,//width/2, 
+    _s.skeletonPositions[_j2].y*300.,//height/2,
+    _s.skeletonPositions[_j2].z*300.);
+    
+    //println(_s.skeletonPositions[_j2].z);
   }
 }
 

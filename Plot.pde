@@ -145,7 +145,7 @@ class Plot {
    //Draw axis bounds
    protected void putLabels() {
      fill(0);
-     textSize(8);
+     textSize(10);
      textAlign(RIGHT);
      text(sMin, x + labelWidth, y + pHeight); 
      text(title, x + labelWidth, y + (pHeight+10)/2);  //  [Brizo]

@@ -16,11 +16,17 @@ class Player
   int totalFrames = 0;  
   
   void advanceFrame(int nframes) {
-    currFrame += nframes;  
+    if(currFrame + nframes < totalFrames) {
+      currFrame += nframes;
+      println(currFrame);
+    }
   }
   
   void retrogradeFrame(int nframes) {
-    currFrame -= nframes;  
+    if(currFrame - nframes >= 0) {
+      currFrame -= nframes;
+      println(currFrame);
+    }
   }
   
   int getTotalFrames() {
