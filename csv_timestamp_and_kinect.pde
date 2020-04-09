@@ -124,7 +124,9 @@ void draw()
   background(0);
   
   textSize(14);
-  text("* Press 'f' key - Select one of the participants (folder 1, 5, 6, 7 or 9)", 10, 14);
+  fill(255, 255, 0);
+  text("* Press 'f' key - Select one of the participants (folder 1, 5, 6 or 7)", 10, 14);
+  fill(255);
   text("* You can select one recording of this participant by pressing a number\nor navigating using keys n (select previous recording) and m (select next recording)", 10, 35);
   text("* Press 'v' key - Plays video (if any), not synced", 10, 80);
   
@@ -319,7 +321,7 @@ void keyPressed()
      break;
      
     case 'f':
-      selectFolder("Select a folder to process:", "folderSelected", new File(sketchPath("../data")));
+      selectFolder("Select a folder to process:", "folderSelected", new File(sketchPath("data")));
     break;
     
     case ' ':
